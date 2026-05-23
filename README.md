@@ -76,6 +76,8 @@ OPENAI_API_KEY=your_openai_api_key
 DATABASE_URL=postgresql://postgres:postgres@localhost:5432/financial_doc_ai
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
 POSTGRES_DB=financial_doc_ai
 ```
 
