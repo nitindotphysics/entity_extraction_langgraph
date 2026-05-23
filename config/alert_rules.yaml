@@ -1,0 +1,25 @@
+HIGH_VALUE_DEBIT:
+
+  transaction_type: DEBIT
+
+  min_amount: 50000
+
+  alert_message: High value debit detected
+
+
+HIGH_VALUE_CREDIT:
+
+  transaction_type: CREDIT
+
+  min_amount: 75000
+
+  alert_message: High value credit detected
+
+
+INTERNATIONAL_WIRE:
+
+  keyword: wire
+
+  min_amount: 25000
+
+  alert_message: International wire transaction detected
