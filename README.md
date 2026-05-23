@@ -77,23 +77,6 @@ DATABASE_URL=postgresql://postgres:postgres@localhost:5432/financial_doc_ai
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
 POSTGRES_DB=financial_doc_ai
-
-# FastAPI Configuration
-API_HOST=127.0.0.1
-API_PORT=8000
-
-# Streamlit Configuration
-STREAMLIT_PORT=8501
-
-# Alert Configuration
-DEFAULT_ALERT_CHANNEL=EMAIL
-
-# OCR / Parsing Configuration
-OCR_ENABLED=true
-PARSER_ENGINE=docling
-
-# Environment
-ENV=development
 ```
 
 Update all values with your own credentials/configuration before running the project.
@@ -223,3 +206,85 @@ WARNING: This deletes all stored data.
 ```bash
 docker compose down -v
 ```
+
+# Demo Files Included
+
+Sample demo documents are available in:
+
+```text
+data/input/
+```
+
+These files can be directly used to test the workflow and dashboards.
+
+Examples:
+- Bank Statements
+- AML Reports
+- Loan Agreements
+- Invoice Documents
+
+---
+
+# Important Note on Entity Extraction
+
+Currently, entity extraction is implemented ONLY for:
+
+```text
+Bank Statement Documents
+```
+
+The workflow extracts:
+- Customer Details
+- Account Information
+- Transactions
+- Balances
+- Financial Alerts
+
+from bank statement PDFs.
+
+---
+
+# Workflow Behavior for Non-Bank Documents
+
+The LangGraph workflow processes all uploaded documents through:
+- OCR
+- Parsing
+- Quality Check
+- Classification
+
+However, for NON-bank-statement documents:
+
+```text
+Entity Extraction Node is skipped
+```
+
+This means:
+- document still appears in dashboards
+- workflow still executes successfully
+- classification still occurs
+
+BUT:
+- normalized entities are not generated
+- financial transaction extraction does not occur
+- alert generation is skipped
+
+---
+
+# Important Testing Guidance
+
+If you want to test:
+- entity extraction
+- normalization
+- alert generation
+- investigation dashboard
+
+then upload:
+# bank statement documents only
+
+Use the sample bank statement PDFs available in:
+
+```text
+data/input/
+```
+
+for best demo/testing results.
